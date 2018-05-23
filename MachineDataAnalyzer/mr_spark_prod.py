@@ -1,8 +1,4 @@
-# Spark Code for Healthcare MDP Platform.
-# This code is for MR modality and will be generalized later
-# to support other modalities and business rules
-# This code executes on the DataLake platform 
-
+#This code is used to parse machine data and generate stats
 #from pyspark.sql import SparkSession
 from pyspark.sql import SQLContext, Row
 from pyspark.sql import HiveContext
@@ -673,7 +669,7 @@ if __name__ == "__main__":
     start_date = "2016-01-01"
     end_date = "2016-01-03"
     #spark.sqlCtx.udf.register("ProcessExternalData", process_external_data) 
-    mrSysLogDataOrig = getDataFromGPDB("jdbc:postgresql://***REMOVED***/gehc_data?user=***REMOVED***&password=***REMOVED***","onwatch.mr_gesyslog_dtl",sqlCtx,args.startDate,args.endDate,args.inputFile,args.sysidFilterFile)
+    mrSysLogDataOrig = getDataFromGPDB("jdbc:postgresql://alpgpdbgp2prd.idc.ge.com/gehc_data?user=212036654&password=de036654123","onwatch.mr_gesyslog_dtl",sqlCtx,args.startDate,args.endDate,args.inputFile,args.sysidFilterFile)
     print "After getting data from GreenPlum"
     print mrSysLogDataOrig.count()
     ### test code
